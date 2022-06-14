@@ -8,8 +8,7 @@ const CommentCard = ({ comment }) => {
     setButtonDisabled((isDisabled) => !isDisabled);
     value > 0 ? setVotes((votes) => votes + 1) : setVotes((votes) => votes - 1);
     patchCommentVotes(value, id)
-      .then(( {updatedObj} ) => {
-      })
+      .then(({ updatedObj }) => {})
       .catch((err) => {
         value > 0
           ? setVotes((votes) => votes - 1)
@@ -17,6 +16,7 @@ const CommentCard = ({ comment }) => {
         alert(`There was something wrong with the data! Try again!`);
       });
   };
+
   return (
     <div className="ReviewCard">
       <section className="pTag">
@@ -31,13 +31,13 @@ const CommentCard = ({ comment }) => {
         disabled={buttonDisabled}
         onClick={() => updateCommentVotes(1, comment.comment_id)}
       >
-        ⬆️ Upvote
+        <span class="material-symbols-outlined">arrow_circle_up</span> Upvote
       </button>
       <button
         disabled={buttonDisabled}
         onClick={() => updateCommentVotes(-1, comment.comment_id)}
       >
-        ⬇️ Downvote
+        <span class="material-symbols-outlined">arrow_circle_down</span>Downvote
       </button>
     </div>
   );

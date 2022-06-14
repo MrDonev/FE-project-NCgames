@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { patchVote } from "../util/api";
+import ReviewComments from "./ReviewComments";
 
 const SingleReviewTab=({review})=>{
-    const [buttonDisabled,setButtonDisabled]=useState(false)
+const [buttonDisabled,setButtonDisabled]=useState(false)
 const [votes,setVotes]=useState(review.votes);
+const [viewComments,setViewComments]=useState(false)
 
 const updateVotes=(value,id)=>{
     setButtonDisabled((isDisabled)=>!isDisabled)
@@ -31,9 +33,12 @@ const updateVotes=(value,id)=>{
         </section>
         <p>Comments: {review.comment_count}</p>
         <p>Votes {votes===0 ? review.votes : votes}</p>
-        <button>View comments</button>
+        <button onClick={()=>setViewComments((toggle)=>!toggle)}>View comments</button>
         <button disabled={buttonDisabled} onClick={()=>updateVotes(1,review.review_id)}>⬆️ Upvote</button>
         <button disabled={buttonDisabled} onClick={()=>updateVotes(-1,review.review_id)}>⬇️ Downvote</button>
+        <section>
+        {viewComments ? <ReviewComments review_id={review.review_id}/> : null} 
+        </section>
         </div>
     )
     }

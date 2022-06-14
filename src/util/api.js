@@ -32,3 +32,15 @@ export const patchVote=(value,id)=>{
   return res.data
  })
 }
+
+export const getComments=(id)=>{
+  return baseUrl.get(`/reviews/${id}/comments`).then((res)=>{
+    return res.data
+  })
+}
+
+export const patchCommentVotes=(value,id)=>{
+  return baseUrl.patch(`/comments/${id}`,{inc_votes: value}).then((res)=>{
+    return res.data
+   })
+}

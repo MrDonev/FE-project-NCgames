@@ -60,8 +60,8 @@ body {
 .ReviewIMG > img {
   height: 100%;
   width: 100%;
-  border: 0.1vh dotted grey;
   border-radius: 1em;
+  box-shadow: 0 0.1em 0.4em 0.2em rgb(100, 100, 99);
 }
 .Main {
   display: flex;

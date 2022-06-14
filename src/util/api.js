@@ -26,3 +26,9 @@ export const getAllCategories = () => {
     return res.data;
   });
 };
+
+export const patchVote=(value,id)=>{
+ return baseUrl.patch(`/reviews/${id}`,{inc_votes: value}).then((res)=>{
+  return res.data
+ })
+}

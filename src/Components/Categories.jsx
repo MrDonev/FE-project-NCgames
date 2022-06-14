@@ -1,9 +1,8 @@
 import { useState,useEffect } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getAllCategories } from "../util/api";
 
 const Categories=()=>{
-  let navigate=useNavigate();
 const [allCategories, setAllCategories]=useState([]);
 const [loading, setLoading]=useState(true);
 useEffect(()=>{
@@ -20,7 +19,7 @@ return ( (loading) ? <div className="loader">...Loading</div> :
    return <li key={category.slug} className='ReviewCard'>
     <p>Category: {category.slug}</p>
     <p>Description: {category.description}</p>
-   <button onClick={()=>navigate(`/reviews/${category.slug}`)}>Select category</button>
+   <Link to={`/reviews/${category.slug}`}>Select</Link>
    </li>
   })}
   </ul>

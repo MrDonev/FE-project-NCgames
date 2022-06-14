@@ -13,8 +13,10 @@ const updateVotes=(value,id)=>{
     value > 0 ? setVotes((votes)=>votes-1) : setVotes((votes)=>votes+1)
     alert(`There was something wrong with the data! Try again!`)
   })
-
 }
+useEffect(()=>{
+  setVotes(review.votes)
+},[review.votes])
     return (
         <div className="ReviewCard">
         <div className="ReviewIMG">

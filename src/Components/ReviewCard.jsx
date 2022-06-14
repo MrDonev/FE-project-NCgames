@@ -1,6 +1,6 @@
-
+import { useNavigate } from "react-router-dom";
 const ReviewCard = ({ reviewObj }) => {
- 
+ let navigate=useNavigate();
 
   return (
     <div className="ReviewCard">
@@ -15,9 +15,11 @@ const ReviewCard = ({ reviewObj }) => {
       <p>Votes {reviewObj.votes}</p>
       <button
         onClick={() =>
-          (window.location.href = `/reviews/${reviewObj.review_id}`)
+         navigate(`/reviews/${reviewObj.review_id}`)
         }
-      >
+      ><span class="material-symbols-outlined">
+      view_timeline
+      </span>
         Read review
       </button>
     </div>

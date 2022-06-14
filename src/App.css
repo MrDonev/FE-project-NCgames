@@ -44,6 +44,7 @@ body {
   justify-content: space-around;
 }
 .Nav > a {
+  text-decoration: none;
   border: 0.1px solid rgb(78, 78, 78);
   padding: 0.5em;
   border-radius: 1em;
@@ -51,7 +52,9 @@ body {
   text-align: center;
   background-color: rgb(241, 151, 119);
 }
-
+.Nav > a:hover{
+  box-shadow: 0 0 1em 0.2em rgb(107, 107, 107);
+}
 .ReviewIMG {
   grid-area:img;
   width: 25vw;

@@ -44,8 +44,14 @@ export const patchCommentVotes = (value, id) => {
   });
 };
 
-export const postNewComment = (id,commentObj)=>{
-  return baseUrl.post(`/reviews/${id}/comments`,commentObj).then((res)=>{
-    return res.data
-  })
-}
+export const postNewComment = (id, commentObj) => {
+  return baseUrl.post(`/reviews/${id}/comments`, commentObj).then((res) => {
+    return res.data;
+  });
+};
+
+export const getUsers = () => {
+  return baseUrl.get('/users').then((res) => {
+    return res.data;
+  });
+};

@@ -1,32 +1,35 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { postNewComment } from '../util/api';
-
+import UserContext from '../util/Contexts';
 const NewComment = (props) => {
-    const review_id=props.review_id;
-    const setViewComments=props.setFunctions[1];
+  const user = useContext(UserContext);
+  const review_id = props.review_id;
+  const setViewComments = props.setFunctions[1];
   const [body, setComment] = useState('');
-  const [username, setUsername] = useState('');
+let username= user.user.username || ''
   const [commentObj, setCommentObj] = useState({});
-
+console.log(commentObj)
   const handleSubmit = (event) => {
+    if (body.length < 15 || username==='') {
+      alert(`At least 15 characters needed to post comment`);
+    } else {
       setCommentObj({ username, body });
       event.preventDefault();
+    }
   };
-  useEffect(()=>{
-   commentObj.username ? postNewComment(review_id, commentObj).then((data) => {
-      setViewComments(true)
-      }) : console.log(`no object`)
-  },[commentObj,review_id])
-  return (
+  useEffect(() => {
+    commentObj.body
+      ? postNewComment(review_id, commentObj).then((data) => {
+          setViewComments(true);
+          alert(`Successfully posted a comment!`);
+        })
+      : console.log(`no object`);
+  }, [commentObj, review_id]);
+
+  return !user.user.username ? (
+    <p>In order to post a comment, you must be logged in!</p>
+  ) : (
     <form className="addComment" onSubmit={handleSubmit}>
-      <label>
-        Enter username:
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </label>
       <label>
         Comment:
         <input

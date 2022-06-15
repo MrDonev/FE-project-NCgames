@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { patchCommentVotes } from '../util/api';
 const CommentCard = ({ comment }) => {
   const [votes, setVotes] = useState(comment.votes);
-  const [buttonDisabled, setButtonDisabled] = useState(false);
-  
+  const [upButtonDisabled, setUpButtonDisabled] = useState(false);
+  const [downButtonDisabled, setDownButtonDisabled] = useState(false);
+
   const updateCommentVotes = (value, id) => {
-    setButtonDisabled((isDisabled) => !isDisabled);
     value > 0 ? setVotes((votes) => votes + 1) : setVotes((votes) => votes - 1);
     patchCommentVotes(value, id)
       .then(({ updatedObj }) => {})
@@ -28,16 +28,28 @@ const CommentCard = ({ comment }) => {
       </section>
       <p>Votes {votes === 0 ? comment.votes : votes}</p>
       <button
-        disabled={buttonDisabled}
-        onClick={() => updateCommentVotes(1, comment.comment_id)}
+        disabled={upButtonDisabled}
+        onClick={() => {
+          setUpButtonDisabled(true);
+          if (upButtonDisabled != downButtonDisabled) {
+            setDownButtonDisabled(false);
+          }
+          updateCommentVotes(1, comment.comment_id);
+        }}
       >
-        <span class="material-symbols-outlined">arrow_circle_up</span> Upvote
+        <span className="material-symbols-outlined">thumb_up</span>
       </button>
       <button
-        disabled={buttonDisabled}
-        onClick={() => updateCommentVotes(-1, comment.comment_id)}
+        disabled={downButtonDisabled}
+        onClick={() => {
+          setDownButtonDisabled(true);
+          if (upButtonDisabled !== downButtonDisabled) {
+            setUpButtonDisabled(false);
+          }
+          updateCommentVotes(-1, comment.comment_id);
+        }}
       >
-        <span class="material-symbols-outlined">arrow_circle_down</span>Downvote
+        <span className="material-symbols-outlined">thumb_down</span>
       </button>
     </div>
   );

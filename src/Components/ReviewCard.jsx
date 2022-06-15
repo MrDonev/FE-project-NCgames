@@ -1,7 +1,6 @@
+import { Link } from 'react-router-dom';
 
 const ReviewCard = ({ reviewObj }) => {
- 
-
   return (
     <div className="ReviewCard">
       <div className="ReviewIMG">
@@ -13,13 +12,9 @@ const ReviewCard = ({ reviewObj }) => {
       <p>Title: {reviewObj.title}</p>
       <p>Comments: {reviewObj.comment_count}</p>
       <p>Votes {reviewObj.votes}</p>
-      <button
-        onClick={() =>
-          (window.location.href = `/reviews/${reviewObj.review_id}`)
-        }
-      >
-        Read review
-      </button>
+      <Link to={`/reviews/${reviewObj.review_id}`}>
+        <button> <span class="material-symbols-outlined">view_timeline</span>Read review</button>
+      </Link>
     </div>
   );
 };

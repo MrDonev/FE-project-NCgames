@@ -3,7 +3,7 @@ import { patchCommentVotes } from '../util/api';
 const CommentCard = ({ comment }) => {
   const [votes, setVotes] = useState(comment.votes);
   const [buttonDisabled, setButtonDisabled] = useState(false);
-
+  
   const updateCommentVotes = (value, id) => {
     setButtonDisabled((isDisabled) => !isDisabled);
     value > 0 ? setVotes((votes) => votes + 1) : setVotes((votes) => votes - 1);
@@ -24,7 +24,7 @@ const CommentCard = ({ comment }) => {
         <p>Created at: {comment.created_at}</p>
       </section>
       <section className="singleReview">
-        <p>Review: {comment.body}</p>
+        <p>{comment.body}</p>
       </section>
       <p>Votes {votes === 0 ? comment.votes : votes}</p>
       <button

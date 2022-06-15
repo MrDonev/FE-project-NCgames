@@ -49,9 +49,21 @@ body {
   border-radius: 1em;
   width: 5em;
   text-align: center;
+  text-decoration: none;
   background-color: rgb(241, 151, 119);
 }
+.addComment{
+  display:flex;
+  flex-direction: column;
+  height: auto;
+  margin: 1em;
+  align-items: center;
+  border: 1px solid black;
+}
 
+#commentBody{
+  min-height: 6vh;
+}
 .ReviewIMG {
   grid-area:img;
   width: 25vw;
@@ -97,8 +109,10 @@ body {
 }
 .ReviewCard > button {
   text-align: center;
+  font-size: 0.9rem;
   display: inline-block;
-  padding: 0.2em;
+  padding:0.4em;
+  border-radius: 0.6em;
 }
 .ReviewCard > p {
   font-family: 'Patrick Hand', cursive;

@@ -43,3 +43,9 @@ export const patchCommentVotes = (value, id) => {
     return res.data;
   });
 };
+
+export const postNewComment = (id,commentObj)=>{
+  return baseUrl.post(`/reviews/${id}/comments`,commentObj).then((res)=>{
+    return res.data
+  })
+}

@@ -4,12 +4,14 @@ export const baseUrl = axios.create({
   baseURL: 'https://donev-nc-games.herokuapp.com/api',
 });
 
-export const getAllReviews = (category) => {
+export const getAllReviews = (category,sort,order) => {
   return category === undefined || isNaN(Number(category))
     ? baseUrl
-        .get('/reviews', {
+        .get('/reviews',{
           params: {
             category,
+            sort_by:sort,
+            order_by:order
           },
         })
         .then((res) => {

@@ -3,15 +3,18 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ReviewCard from './ReviewCard';
 import SingleReviewTab from './SingleReview';
+import SortReviews from './SortReviews';
 
 const Reviews = () => {
   const { category } = useParams();
   const [singleReview, setSingleReview] = useState({});
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [sortBy, setSortBy] = useState();
+  const [orderBy, setOrderBy] = useState();
 
   useEffect(() => {
-    getAllReviews(category)
+    getAllReviews(category, sortBy, orderBy)
       .then((allReviews) => {
         if (Array.isArray(allReviews.reviewsArr)) {
           setReviews(allReviews.reviewsArr);
@@ -24,12 +27,16 @@ const Reviews = () => {
       .catch((err) => {
         console.dir(err);
       });
-  }, [category]);
+  }, [category, orderBy, sortBy]);
 
   return loading ? (
     <div className="loader">...Loading</div>
   ) : isNaN(Number(category)) ? (
     <main className="Main">
+      <SortReviews
+        setSortBy={setSortBy}
+        setOrderBy={setOrderBy}
+      />
       <ul>
         {reviews.map((review) => {
           return (

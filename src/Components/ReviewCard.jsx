@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 const ReviewCard = ({ reviewObj }) => {
+  const date=new Date(reviewObj.created_at)
   return (
     <div className="ReviewCard">
       <div className="ReviewIMG">
@@ -8,7 +9,7 @@ const ReviewCard = ({ reviewObj }) => {
       </div>
       <p>Owner: {reviewObj.owner}</p>
       <p>Category: {reviewObj.category}</p>
-      <p>Created at: {reviewObj.created_at}</p>
+      <p>Created at: {date.toLocaleString()}</p>
       <p>Title: {reviewObj.title}</p>
       <p>Comments: {reviewObj.comment_count}</p>
       <p>Votes {reviewObj.votes}</p>

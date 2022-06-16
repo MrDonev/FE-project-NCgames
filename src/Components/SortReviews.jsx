@@ -1,31 +1,23 @@
 const SortReviews = (props) => {
-  const setSortBy = props.setSortBy[1];
-  const setOrderBy = props.setOrderBy[1];
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    setSortBy(e.target[0].value || null);
-    setOrderBy(e.target[1].value || null);
-  }
+  const setSortBy = props.setSortBy;
+  const setOrderBy = props.setOrderBy;
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form>
         <label>
           Sort by:
-          <select>
-            <option value="">Attributes</option>
+          <select onChange={(e)=>{setSortBy(e.target.value)}}>
             <option value="created_at">Date</option>
             <option value="comment_count">Comments</option>
             <option value="votes">Votes</option>
           </select>
-          <select>
-            <option value="">Order</option>
+          <select onChange={(e)=>{setOrderBy(e.target.value)}}>
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
           </select>
         </label>
-        <input type="submit"></input>
+
       </form>
     </>
   );

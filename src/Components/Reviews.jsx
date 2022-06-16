@@ -34,8 +34,8 @@ const Reviews = () => {
   ) : isNaN(Number(category)) ? (
     <main className="Main">
       <SortReviews
-        setSortBy={[sortBy, setSortBy]}
-        setOrderBy={[orderBy, setOrderBy]}
+        setSortBy={setSortBy}
+        setOrderBy={setOrderBy}
       />
       <ul>
         {reviews.map((review) => {

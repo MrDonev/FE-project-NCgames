@@ -13,7 +13,7 @@ const ReviewCard = ({ reviewObj }) => {
       <p>Comments: {reviewObj.comment_count}</p>
       <p>Votes {reviewObj.votes}</p>
       <Link to={`/reviews/${reviewObj.review_id}`}>
-        <button> <span class="material-symbols-outlined">view_timeline</span>Read review</button>
+        <button> <span className="material-symbols-outlined">view_timeline</span>Read review</button>
       </Link>
     </div>
   );

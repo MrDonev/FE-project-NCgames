@@ -2,16 +2,16 @@ import { useContext, useEffect, useState } from 'react';
 import { postNewComment } from '../util/api';
 import UserContext from '../util/Contexts';
 const NewComment = (props) => {
-  const {user} = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const review_id = props.review_id;
   const setViewComments = props.setFunctions[1];
   const [body, setComment] = useState('');
-let username= user.username || ''
+  let username = user.username || '';
   const [commentObj, setCommentObj] = useState({});
-console.log(commentObj)
+
   const handleSubmit = (event) => {
-    if (body.length < 15 || username==='') {
-      event.preventDefault()
+    if (body.length < 15 || username === '') {
+      event.preventDefault();
       alert(`At least 15 characters needed to post comment`);
     } else {
       setCommentObj({ username, body });

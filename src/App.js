@@ -9,6 +9,7 @@ import UserContext from '../src/util/Contexts';
 import { Routes, Route } from 'react-router-dom';
 import Footer from './Components/Footer';
 import Users from './Components/Users';
+import Errors from './Components/Errors';
 
 const App = () => {
   const [user, setUser] = useState({});
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/reviews/:category" element={<Reviews />} />
         <Route path="/categories" element={<Categories />} />
         <Route path='/users' element={<Users/>}/>
+        <Route path='*' element={<Errors/>}/>
       </Routes>
       <Footer />
     </section>

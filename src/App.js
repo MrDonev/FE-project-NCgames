@@ -2,7 +2,8 @@ import Header from './Components/Header';
 import Nav from './Components/Nav';
 import Reviews from './Components/Reviews';
 import Categories from './Components/Categories';
-import './App.css';
+import './App.css'
+// import './newCss.css';
 import { useState } from 'react';
 import UserContext from '../src/util/Contexts';
 import { Routes, Route } from 'react-router-dom';

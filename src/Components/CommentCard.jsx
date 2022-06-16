@@ -31,7 +31,7 @@ const CommentCard = ({ comment }) => {
         disabled={upButtonDisabled}
         onClick={() => {
           setUpButtonDisabled(true);
-          if (upButtonDisabled != downButtonDisabled) {
+          if (upButtonDisabled !== downButtonDisabled) {
             setDownButtonDisabled(false);
           }
           updateCommentVotes(1, comment.comment_id);

@@ -24,7 +24,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  padding: 2em;
+  padding: 2.5em;
   font-size: large;
   color: rgb(253, 253, 253);
   text-shadow: #e0f07f;
@@ -33,30 +33,51 @@ body {
   overflow: hidden;
   color: azure;
   text-shadow: 0.1em 0.1em 0.1em rgb(0, 0, 0);
+  text-align: center;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+  'h1 h1 h1.....'
+  'h3 h3 h3 user'
+  ;
+}
+.Header>h1{
+  grid-area: h1;
+margin:0.2em;
+font-size: 1.7rem;
+
 }
 .Header > h3 {
-  margin-top: 0;
+  grid-area: h3;
+ margin-top:0.5em;
   font-size: 1.1rem;
   background-color: #313131b9;
   border-radius: 1em;
-  width: 60%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 #user{
   display: block;
-  margin-left: 80%;
-  margin-top: 0;
+  width:fit-content;
+  margin-left: 40%;
+  margin-top:0;
+  background-color: #313131b9;
+  padding: 0.3em;
+  grid-area:user;
+  border-radius: 1em;
+ border:2px solid rgb(31, 30, 30);
 }
 #userLogImg{
+  margin:auto;
   width:3em;
   height: 3em;
 }
 #userLogImg>img{
   width: 100%;
   height: 100%;
+  border-radius: 40%;
 }
 .Users{
-width: 97%;
+
 background-color: #9c9c9c;
 }
 .Users > ul{
@@ -64,6 +85,9 @@ background-color: #9c9c9c;
 flex-direction: row;
 flex-wrap: wrap;
 justify-content: space-around;
+}
+.Users > li{
+ display: none;
 }
 .Nav {
   display: flex;
@@ -180,6 +204,9 @@ justify-content: space-around;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
+}
+@media screen and (min-width: 580px) {
+ 
 }
 @-webkit-keyframes load5 {
   0%,

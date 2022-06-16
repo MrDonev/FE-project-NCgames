@@ -9,7 +9,6 @@ useEffect(()=>{
     getAllCategories().then(({categories})=>{
       setAllCategories(categories)
       setLoading(false)
-      console.log(`use effect`)
     })
 },[loading])
 return ( (loading) ? <div className="loader">...Loading</div> :
@@ -19,7 +18,7 @@ return ( (loading) ? <div className="loader">...Loading</div> :
    return <li key={category.slug} className='ReviewCard'>
     <p>Category: {category.slug}</p>
     <p>Description: {category.description}</p>
-   <Link to={`/reviews/${category.slug}`}>Select</Link>
+   <Link to={`/reviews/${category.slug}`}><button>Select category</button></Link>
    </li>
   })}
   </ul>

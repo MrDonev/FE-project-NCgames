@@ -9,7 +9,6 @@ html,
 body {
   min-height: 100vh;
   min-width: 100%;
-
 }
 .App {
   max-width: 98%;
@@ -20,26 +19,84 @@ body {
   align-items: center;
 }
 .Header {
+  background-image: url('./Assets/gamebckg.jpg');
   background-color: #e0f07f;
-  padding: 2em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding: 2.5em;
   font-size: large;
-  color: rgb(54, 54, 54);
+  color: rgb(253, 253, 253);
+  text-shadow: #e0f07f;
   width: 85%;
   height: 13vh;
   overflow: hidden;
+  color: azure;
+  text-shadow: 0.1em 0.1em 0.1em rgb(0, 0, 0);
+  text-align: center;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+  'h1 h1 h1.....'
+  'h3 h3 h3 user'
+  ;
+}
+.Header>h1{
+  grid-area: h1;
+margin:0.2em;
+font-size: 1.7rem;
+
 }
 .Header > h3 {
-  margin-top: 3.8em;
-  font-size: 1rem;
+  grid-area: h3;
+ margin-top:0.5em;
+  font-size: 1.1rem;
+  background-color: #313131b9;
+  border-radius: 1em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#user{
+  display: block;
+  width:fit-content;
+  margin-left: 40%;
+  margin-top:0;
+  background-color: #313131b9;
+  padding: 0.3em;
+  grid-area:user;
+  border-radius: 1em;
+ border:2px solid rgb(31, 30, 30);
+}
+#userLogImg{
+  margin:auto;
+  width:3em;
+  height: 3em;
+}
+#userLogImg>img{
+  width: 100%;
+  height: 100%;
+  border-radius: 40%;
+}
+.Users{
+
+background-color: #9c9c9c;
+}
+.Users > ul{
+ display: inline-flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-around;
+}
+.Users > li{
+ display: none;
 }
 .Nav {
   display: flex;
   margin: 0.2em;
-  overflow:hidden;
+  overflow: hidden;
   width: 85%;
   padding: 2.2em;
-  background-color: #f5e97b;
+  background: rgb(79,79,79);
+  background: linear-gradient(180deg, rgba(79,79,79,1) 0%, rgba(97,96,96,1) 34%, rgba(134,133,133,1) 71%, rgba(156,156,156,1) 100%);
   flex-direction: row;
   justify-content: space-around;
 }
@@ -49,11 +106,27 @@ body {
   border-radius: 1em;
   width: 5em;
   text-align: center;
-  background-color: rgb(241, 151, 119);
+  text-decoration: none;
+  background-color: rgb(216, 205, 49);
+}
+.Nav > a:hover {
+  color: #000000;
+  box-shadow: 0.2em 0.2em 0.5em 0.3em yellow;
+}
+.addComment {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin: 1em;
+  align-items: center;
+  border: 1px solid black;
 }
 
+#commentBody {
+  min-height: 6vh;
+}
 .ReviewIMG {
-  grid-area:img;
+  grid-area: img;
   width: 25vw;
   height: 25vw;
 }
@@ -89,21 +162,23 @@ body {
   border: 1px dotted black;
   border-radius: 0.5em;
 }
-.pTag{
+.pTag {
   grid-area: p;
 }
-.ReviewCard > div{
-  margin-left:auto;
+.ReviewCard > div {
+  margin-left: auto;
 }
 .ReviewCard > button {
   text-align: center;
+  font-size: 0.9rem;
   display: inline-block;
-  padding: 0.2em;
+  padding: 0.4em;
+  border-radius: 0.6em;
 }
 .ReviewCard > p {
   font-family: 'Patrick Hand', cursive;
 }
-.singleReview{
+.singleReview {
   grid-area: div;
   border: 1px dotted grey;
   background-color: gainsboro;
@@ -112,7 +187,7 @@ body {
   margin: 0.4em;
 }
 
-.Footer{
+.Footer {
   padding: 1em;
 }
 /* Loading spinner */
@@ -129,6 +204,9 @@ body {
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
+}
+@media screen and (min-width: 580px) {
+ 
 }
 @-webkit-keyframes load5 {
   0%,

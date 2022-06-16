@@ -57,3 +57,9 @@ export const getUsers = () => {
     return res.data;
   });
 };
+
+export const deleteComment = (id)=>{
+  return baseUrl.delete(`comments/${id}`).then((res)=>{
+    return res.data
+  })
+}

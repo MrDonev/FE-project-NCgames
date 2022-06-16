@@ -26,7 +26,7 @@ const SingleReviewTab = ({ review }) => {
     setVotes(review.votes);
     setAddComment(false);
   }, [review.votes, review.comment_count]);
-
+const date= new Date(review.created_at)
   return (
     <div className="ReviewCard">
       <div className="ReviewIMG">
@@ -35,7 +35,7 @@ const SingleReviewTab = ({ review }) => {
       <section className="pTag">
         <p>Owner: {review.owner}</p>
         <p>Category: {review.category}</p>
-        <p>Created at: {review.created_at}</p>
+        <p>Created at: {date.toLocaleString()}</p>
         <p>Title: {review.title}</p>
       </section>
       <section className="singleReview">

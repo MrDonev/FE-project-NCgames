@@ -28,7 +28,8 @@ const UserCard = ({ currUser, allUsers }) => {
         <img src={currUser.avatar_url} alt={currUser.username} />
       </div>
       <p>Name: {currUser.name}</p>
-      <button onClick={() => logIn(currUser.username)}>Log in</button>
+      {!user.username ? <button onClick={() => logIn(currUser.username)}>Log in with username</button> : <></>}
+      {user.username && currUser.username===user.username?<button onClick={()=>setUser({})}>Log out</button>:<></>}
     </div>
   );
 };

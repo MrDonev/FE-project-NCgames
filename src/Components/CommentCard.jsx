@@ -31,11 +31,12 @@ const CommentCard = ({ comment, setComments }) => {
         });
     }
   };
+  const date= new Date(comment.created_at)
   return (
     <div className="ReviewCard">
       <section className="pTag">
         <p>Author: {comment.author}</p>
-        <p>Created at: {comment.created_at}</p>
+        <p>Created at: {date.toLocaleString()}</p>
       </section>
       <section className="singleReview">
         <p>{comment.body}</p>

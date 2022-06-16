@@ -5,6 +5,7 @@ const UserCard = ({ currUser, allUsers }) => {
   const { setUser, user } = useContext(UserContext);
   function logIn(currUserName) {
     const userNameInput = prompt(`enter username`);
+    if(userNameInput===null) return
     if (
       allUsers
         .map((mapUser) =>

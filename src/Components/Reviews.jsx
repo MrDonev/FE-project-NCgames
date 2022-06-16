@@ -26,6 +26,7 @@ const Reviews = () => {
       })
       .catch((err) => {
         console.dir(err);
+        window.location='/*';
       });
   }, [category, orderBy, sortBy]);
 

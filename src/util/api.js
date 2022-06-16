@@ -5,7 +5,8 @@ export const baseUrl = axios.create({
 });
 
 export const getAllReviews = (category,sort,order) => {
-   return  baseUrl
+  return category === undefined || isNaN(Number(category))
+    ? baseUrl
         .get('/reviews',{
           params: {
             category,
@@ -16,6 +17,9 @@ export const getAllReviews = (category,sort,order) => {
         .then((res) => {
           return res.data;
         })
+    : baseUrl.get(`/reviews/${category}`).then((res) => {
+        return res.data;
+      });
 };
 
 export const getAllCategories = () => {

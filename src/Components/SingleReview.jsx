@@ -9,7 +9,7 @@ const SingleReviewTab = ({ review }) => {
   const [votes, setVotes] = useState(review.votes);
   const [viewComments, setViewComments] = useState(false);
   const [addComment, setAddComment] = useState(false);
-
+ console.log(review)
   const updateVotes = (value, id) => {
     value > 0 ? setVotes((votes) => votes + 1) : setVotes((votes) => votes - 1);
     patchVote(value, id)

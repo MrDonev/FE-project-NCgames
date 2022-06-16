@@ -10,7 +10,7 @@ const ReviewComments = ({ review_id }) => {
       setComments(commentsArray);
       setLoading(false);
     });
-  }, [review_id]);
+  }, [review_id,comments]);
   return (
     <>
       {loading ? (
@@ -23,7 +23,7 @@ const ReviewComments = ({ review_id }) => {
             return (
               <li key={comment.created_at}>
                 {' '}
-                <CommentCard comment={comment} />
+                <CommentCard comment={comment} setComments={setComments}/>
               </li>
             );
           })}

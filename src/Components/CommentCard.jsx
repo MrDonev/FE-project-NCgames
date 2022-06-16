@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
-import { patchCommentVotes } from '../util/api';
-const CommentCard = ({ comment }) => {
+import { useState, useEffect, useContext } from 'react';
+import { patchCommentVotes, deleteComment } from '../util/api';
+import UserContext from '../util/Contexts';
+
+const CommentCard = ({ comment, setComments }) => {
   const [votes, setVotes] = useState(comment.votes);
   const [upButtonDisabled, setUpButtonDisabled] = useState(false);
   const [downButtonDisabled, setDownButtonDisabled] = useState(false);
+  const { user } = useContext(UserContext);
 
   const updateCommentVotes = (value, id) => {
     value > 0 ? setVotes((votes) => votes + 1) : setVotes((votes) => votes - 1);
@@ -16,7 +19,18 @@ const CommentCard = ({ comment }) => {
         alert(`There was something wrong with the data! Try again!`);
       });
   };
-
+  const deleteCommentById = (id) => {
+    if (window.confirm(`Are you sure you want to delete that comment?`)) {
+      deleteComment(id)
+        .then((data) => {
+          setComments((currState)=>[...currState])
+          alert(`Comment deleted!`)
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
   return (
     <div className="ReviewCard">
       <section className="pTag">
@@ -51,6 +65,15 @@ const CommentCard = ({ comment }) => {
       >
         <span className="material-symbols-outlined">thumb_down</span>
       </button>
+      {user.username && comment.author === user.username ? (
+        <button
+          onClick={() => {
+            deleteCommentById(comment.comment_id);
+          }}
+        >
+          <span class="material-symbols-outlined">delete</span>
+        </button>
+      ) : null}
     </div>
   );
 };

@@ -11,7 +11,7 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sortBy, setSortBy] = useState();
-  const [orderBy, setOrderBy] = useState();
+  const [orderBy, setOrderBy] = useState('desc');
 
   useEffect(() => {
     getAllReviews(category, sortBy, orderBy)
@@ -38,7 +38,7 @@ const Reviews = () => {
         setSortBy={setSortBy}
         setOrderBy={setOrderBy}
       />
-      <ul>
+      <ul className='cardsDisplay'>
         {reviews.map((review) => {
           return (
             <li key={review.title}>

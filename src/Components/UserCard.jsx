@@ -23,8 +23,8 @@ const UserCard = ({ currUser, allUsers }) => {
   }
 
   return (
-    <div className="ReviewCard">
-      <div className="ReviewIMG">
+    <div className="cardContainer" id='userCard'>
+      <div className="cardImgContainer" id='userImg'>
         <img src={currUser.avatar_url} alt={currUser.username} />
       </div>
       <p>Name: {currUser.name}</p>

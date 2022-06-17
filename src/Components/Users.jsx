@@ -17,13 +17,13 @@ const [loading, setLoading]=useState(true)
 
     return loading ? (
         <div className="loader">...Loading</div>
-      ) :<section  className="Users">
-        <ul>
+      ) :
+        <ul className="cardsDisplay">
             {allUsers.map(currUser=>{
                 return <li><UserCard currUser={currUser} allUsers={allUsers}/></li>
             })}
         </ul>
-    </section>
+   
 }
 
 export default Users;

@@ -15,9 +15,9 @@ return ( (loading) ? <div className="loader">...Loading</div> :
 <main className="Main">
     <ul >
   {allCategories.map(category=>{
-   return <li key={category.slug} className='ReviewCard'>
-    <p>Category: {category.slug}</p>
-    <p>Description: {category.description}</p>
+   return <li key={category.slug} className='categoryCard'>
+    <p id='categoryTitle'>Category: {category.slug}</p>
+    <p id='categoryDesc'>Description: {category.description}</p>
    <Link to={`/reviews/${category.slug}`}><button>Select category</button></Link>
    </li>
   })}

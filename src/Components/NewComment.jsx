@@ -8,12 +8,16 @@ const NewComment = (props) => {
   const [body, setComment] = useState('');
   let username = user.username || '';
   const [commentObj, setCommentObj] = useState({});
+  const textArea=document.getElementById('commentBody')
+  const warning=document.getElementById('textAreaWarning')
 
   const handleSubmit = (event) => {
     if (body.length < 15 || username === '') {
       event.preventDefault();
-      alert(`At least 15 characters needed to post comment`);
+      textArea.style.border='1px solid red'
+      warning.style.display='block'
     } else {
+      textArea.style.border='1px solid green'
       setCommentObj({ username, body });
       event.preventDefault();
     }
@@ -32,14 +36,15 @@ const NewComment = (props) => {
   ) : (
     <form className="addComment" onSubmit={handleSubmit}>
       <label>
-        Comment:
-        <input
+        <textarea
           id="commentBody"
           type="text"
+          word-break='break-word'
           value={body}
           onChange={(e) => setComment(e.target.value)}
-        />
+        ></textarea>
       </label>
+    <p id='textAreaWarning'>Comments must contain at least 15 characters</p>
       <input type="submit" />
     </form>
   );

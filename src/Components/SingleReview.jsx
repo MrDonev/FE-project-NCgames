@@ -28,8 +28,8 @@ const SingleReviewTab = ({ review }) => {
   }, [review.votes, review.comment_count]);
 const date= new Date(review.created_at)
   return (
-    <div className="ReviewCard">
-      <div className="ReviewIMG">
+    <div className="singleReview">
+      <div id="reviewImgContainer">
         <img src={review.review_img_url} alt={review.title} />
       </div>
       <section className="pTag">
@@ -38,7 +38,7 @@ const date= new Date(review.created_at)
         <p>Created at: {date.toLocaleString()}</p>
         <p>Title: {review.title}</p>
       </section>
-      <section className="singleReview">
+      <section className="">
         <p>Review: {review.review_body}</p>
       </section>
       <p>Comments: {review.comment_count}</p>

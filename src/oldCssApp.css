@@ -1,289 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
 * {
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
 html,
 body {
-  margin: 0;
-  padding: 0;
+  min-height: 100vh;
+  min-width: 250px;
 }
 .App {
-  overflow: hidden;
-}
-#logo {
-  margin: auto;
-  width: 5em;
-  animation-name: rotate;
-  animation-duration: 6s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-#logo:hover{
-  cursor: pointer;
-  animation-duration: 2s;
-}
-@keyframes rotate {
-  100% {
-    transform: rotate(360deg);
-  }
+  max-width: 98%;
+  display: flex;
+  max-height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .Header {
-  width: 100%;
-  height: 23vh;
   background-image: url('./Assets/gamebckg.jpg');
   background-color: #e0f07f;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
-}
-#headerText {
+  padding: 2.5em;
+  font-size: large;
+  color: rgb(253, 253, 253);
+  text-shadow: #e0f07f;
+  width: 85%;
+  height: 13vh;
+  overflow: hidden;
   color: azure;
-  font-size: larger;
+  text-shadow: 0.1em 0.1em 0.1em rgb(0, 0, 0);
   text-align: center;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+  'h1 h1 h1.....'
+  'h3 h3 h3 user'
+  ;
 }
-#headerText h1 {
-  font-size: 2rem;
+.Header>h1{
+  grid-area: h1;
+margin:0.2em;
+font-size: 1.7rem;
+
 }
-#logBtn {
-  padding: 0.6em;
-  position: fixed;
-  right: 1vw;
-  top: 15vh;
+.Header > h3 {
+  grid-area: h3;
+ margin-top:0.5em;
+  font-size: 1.1rem;
+  background-color: #313131b9;
+  border-radius: 1em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-#user {
+#user{
   display: block;
-  width: fit-content;
+  width:fit-content;
   margin-left: 40%;
-  margin-top: 0;
+  margin-top:0;
   background-color: #313131b9;
   padding: 0.3em;
-  grid-area: user;
+  grid-area:user;
   border-radius: 1em;
-  border: 2px solid rgb(31, 30, 30);
+ border:2px solid rgb(31, 30, 30);
 }
-#userSectionHeader {
-  margin-left: auto;
-  width:8em;
-  text-align: center;
-  background-color: rgba(131, 130, 130, 0.7);
-  border-radius: 3em;
-  align-items: center;
-  overflow: hidden;
+#userLogImg{
+  margin:auto;
+  width:3em;
+  height: 3em;
 }
-#userContainer{
-  margin-top:2.1em;
-}
-#userLogImg {
-  margin: auto;
-  width: 5em;
-  height: 5em;
-}
-#userLogImg > img {
+#userLogImg>img{
   width: 100%;
   height: 100%;
   border-radius: 40%;
 }
+.Users{
+
+background-color: #9c9c9c;
+}
+.Users > ul{
+ display: inline-flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-around;
+}
+.Users > li{
+ display: none;
+}
 .Nav {
   display: flex;
+  margin: 0.2em;
+  overflow: hidden;
+  width: 85%;
+  padding: 2.2em;
+  background: rgb(79,79,79);
+  background: linear-gradient(180deg, rgba(79,79,79,1) 0%, rgba(97,96,96,1) 34%, rgba(134,133,133,1) 71%, rgba(156,156,156,1) 100%);
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
-  height: 8vh;
-  background-color: black;
 }
-
-.Nav a {
-  color: azure;
+.Nav > a {
+  border: 0.1px solid rgb(78, 78, 78);
+  padding: 0.5em;
+  border-radius: 1em;
+  width: 5em;
+  text-align: center;
   text-decoration: none;
-  text-align: center;
-  height: 40%;
-  line-height: 1.5em;
-  margin: 0.2em;
-  padding: 0.4em;
-  width: 6em;
-  background: rgb(79, 79, 79);
-  background: linear-gradient(
-    90deg,
-    rgba(79, 79, 79, 1) 0%,
-    rgba(97, 96, 96, 1) 34%,
-    rgba(134, 133, 133, 1) 71%,
-    rgba(156, 156, 156, 1) 100%
-  );
-  border-radius: 1em 0.4em;
+  background-color: rgb(216, 205, 49);
 }
-.Nav a:hover {
-  color: rgb(241, 165, 51);
-  box-shadow: 0 0.1em 0.2em 0.2em rgb(241, 165, 51);
+.Nav > a:hover {
+  color: #000000;
+  box-shadow: 0.2em 0.2em 0.5em 0.3em yellow;
 }
-.Main {
-  background-color: rgb(253, 253, 253);
-  overflow: hidden;
-  align-content: center;
-}
-.Main ul {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  text-align: center;
-  justify-content: center;
-  padding: 0.2em;
-}
-.categoryCard {
-  display: grid;
-  grid-template-rows: 2fr 3fr 1fr;
-  /* grid-template-areas: ; */
-  border: 1px solid black;
-  margin: 0.3em;
-  width: 20em;
-  border-radius: 0.8em;
-  text-align: center;
-  background-color: rgba(131, 130, 130, 0.479);
-}
-#categoryTitle,#categoryDesc{
-  margin: auto;
-  color: rgb(3, 3, 3);
-  text-align: center;
-  background-color: rgba(131, 130, 130, 0.479);
-  border-radius: 0.6em;
-}
-
-.categoryCard button{
-  grid-area:btn;
-  padding: 0.3em;
-  border-radius: 0.6em;
-}
-.cardsDisplay {
-  /* padding: 0.3em; */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-#commentBody {
-  word-break: break-word;
-}
-#textAreaWarning {
-  display: none;
-}
-.addComment textarea {
-  width: 25vw;
-  height: 15vh;
-}
-.cardContainer {
-  margin: 0.1em;
-  border: 1px solid black;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-areas:
-    'title title img img'
-    'title title img img'
-    'owner owner img img'
-    'category category img img'
-    'comments votes ... ...';
-  border-radius: 0.8em;
-  width:100%;
-  min-width: 20em;
-  max-width: 26em;
-  background-color: rgb(187, 187, 187);
-}
-#userImg {
-  margin: 0.2em;
-  grid-area: img;
-  width: 7em;
-  height: 7em;
-}
-#userCard {
+.addComment {
   display: flex;
   flex-direction: column;
+  height: auto;
+  margin: 1em;
   align-items: center;
-  width: 10em;
+  border: 1px solid black;
 }
-#userCard button {
-  padding: 0.4em;
-  border-radius: 0.6em;
+
+#commentBody {
+  min-height: 6vh;
 }
-#userCard button:hover {
-  background-color: #e1f07f8f;
-}
-#cardTitle {
-  grid-area: title;
-  color: azure;
-  text-align: center;
-  background-color: rgba(131, 130, 130, 0.479);
-  border-radius: 0.6em;
-}
-#cardOwner {
-  grid-area: owner;
-}
-#cardCategory {
-  grid-area: category;
-}
-#cardComments {
-  grid-area: comments;
-}
-.cardImgContainer {
-  margin-top: 0.5em;
-  margin-right: 0.5em;
+.ReviewIMG {
   grid-area: img;
-  width: 10em;
-  height: 10em;
-  padding: 0.5em;
+  width: 25vw;
+  height: 25vw;
 }
-.cardImgContainer > img {
+.ReviewIMG > img {
   height: 100%;
   width: 100%;
   border-radius: 1em;
   box-shadow: 0 0.1em 0.4em 0.2em rgb(100, 100, 99);
 }
-#reviewImgContainer {
-  margin: 0.5em;
-  float: right;
-  width: 22em;
-  height: 20em;
-  box-shadow: 0.1em 0.1em 0.2em 0.2em grey;
-  border-radius: 0.8em;
+.Main {
+  display: flex;
+  background-color: #d9d9d9;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.1em;
+  width: 102%;
+  min-height: 100vh;
 }
-#reviewImgContainer img {
-  width: 100%;
-  height: 100%;
+.ReviewCard {
+  /* display: grid;
+  grid-template-areas: 
+  'p p p img img'
+  'p p p img img'
+  'div div div div div'
+  'div div div div div'
+  'div div div div div'
+  'div div div div div'
+  ; */
+  margin: 0.4em;
+  padding: 0.5em;
+  width: 95%;
+  background-color: #f6eac9;
+  border: 1px dotted black;
+  border-radius: 0.5em;
+}
+.pTag {
+  grid-area: p;
+}
+.ReviewCard > div {
+  margin-left: auto;
+}
+.ReviewCard > button {
+  text-align: center;
+  font-size: 0.9rem;
+  display: inline-block;
+  padding: 0.4em;
   border-radius: 0.6em;
 }
+.ReviewCard > p {
+  font-family: 'Patrick Hand', cursive;
+}
 .singleReview {
-  border-radius: 0.8em;
-  background-color: rgb(187, 187, 187);
-  padding: 2em;
-  width: 90vw;
-  margin: auto;
-  border:1px solid rgb(167, 167, 167)
-}
-#commentCard{
-  margin:0.1em;
-  border:1px dotted rgb(58, 58, 58);
-  width:80%;
-  border-radius:0.8em;
-}
-#commentText{
-  padding: 1em;
-  text-align: left;
-  margin:1em;
-  background-color: rgb(226, 226, 226);
-  border-radius: 0.8em;
-}
-#sorting{
-  text-align: center;
+  grid-area: div;
+  border: 1px dotted grey;
+  background-color: gainsboro;
+  border-radius: 1em;
   padding: 0.5em;
-}
-#sorting select{
-  padding: 0.4em;
-}
-@media only screen and (max-width: 600px) {
-  /* For mobile phones: */
-  .addComment textarea {
-    width: 85vw;
-    height: 20vh;
-  }
+  margin: 0.4em;
 }
 
+.Footer {
+  padding: 1em;
+}
+/* Loading spinner */
 .loader {
   margin: 100px auto;
   font-size: 25px;
@@ -298,7 +205,9 @@ body {
   -ms-transform: translateZ(0);
   transform: translateZ(0);
 }
-
+@media screen and (min-width: 580px) {
+ 
+}
 @-webkit-keyframes load5 {
   0%,
   100% {

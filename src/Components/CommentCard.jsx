@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { patchCommentVotes, deleteComment } from '../util/api';
 import UserContext from '../util/Contexts';
 
@@ -33,13 +33,13 @@ const CommentCard = ({ comment, setComments }) => {
   };
   const date= new Date(comment.created_at)
   return (
-    <div className="ReviewCard">
+    <div id="commentCard" >
       <section className="pTag">
         <p>Author: {comment.author}</p>
         <p>Created at: {date.toLocaleString()}</p>
       </section>
-      <section className="singleReview">
-        <p>{comment.body}</p>
+      <section id="commentBody" >
+        <p id='commentText'>{comment.body}</p>
       </section>
       <p>Votes {votes === 0 ? comment.votes : votes}</p>
       <button

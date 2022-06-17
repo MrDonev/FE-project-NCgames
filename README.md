@@ -25,6 +25,7 @@ Northcoders Games has game reviews which are divided into categories. Each revie
 To run locally: 
 ```JS 
 git clone https://github.com/MrDonev/FE-project-NCgames 
+npm i
 npm start
 ```
 
